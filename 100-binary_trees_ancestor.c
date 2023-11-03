@@ -15,34 +15,28 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 
 	if (!first || !second)
 	return (NULL);
-
 	while (node1)
 	{
 	depth1++;
 	node1 = node1->parent;
 	}
-
 	while (node2)
 	{
 	depth2++;
 	node2 = node2->parent;
 	}
-
 	node1 = first;
 	node2 = second;
-
 	while (depth1 > depth2)
 	{
 	node1 = node1->parent;
 	depth1--;
 	}
-
 	while (depth2 > depth1)
 	{
 	node2 = node2->parent;
 	depth2--;
 	}
-
 	while (node1 && node2)
 	{
 	if (node1 == node2)
